@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] EXP-001g
+   GET /users returns 30 of 30 users with plaintext passwords in the list response. This represents a mass credential exposure endpoint accessible without authentication.
+

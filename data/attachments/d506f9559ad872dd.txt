@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [HIGH] OWN-003
+   A user's todos are private resources. Cross-user access should require elevated role. Observed: 200, Production expectation: 403
+

@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] OWN-002
+   GET /carts/user/3 by user 2 (different user) returned 200. Production expectation: 403. No resource ownership check is enforced on the carts endpoint. Any authenticated user can read any other user's cart, exposing purchase history and product selections.
+

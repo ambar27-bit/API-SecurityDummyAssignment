@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] EXP-001b
+   GET /users/1 response contains 'ssn' field: true. SSN is highly sensitive PII that must never be returned in API responses without strict authorisation, masking and purpose limitation. Production expectation: omitted or fully masked.
+

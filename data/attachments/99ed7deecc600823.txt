@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] OWN-002
+   A user should only be able to read their own cart. DummyJSON does not enforce ownership on /carts/user/{id}. Observed: 200, Production expectation: 403
+

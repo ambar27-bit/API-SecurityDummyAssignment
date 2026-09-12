@@ -1,0 +1,36 @@
+
+⚠  SECURITY FINDING [CRITICAL] EXP-001
+   User records must never expose passwords in any form. SSN, bank card numbers and IBAN are PCI/PII data that should be masked or omitted from API responses. 
+
+
+⚠  SECURITY FINDING [HIGH] EXP-001-password
+   Response field 'password' is present in response body. This is a sensitive field that should be omitted or masked in production.
+
+
+⚠  SECURITY FINDING [HIGH] EXP-001-ssn
+   Response field 'ssn' is present in response body. This is a sensitive field that should be omitted or masked in production.
+
+
+⚠  SECURITY FINDING [HIGH] EXP-001-bank.cardNumber
+   Response field 'bank.cardNumber' is present in response body. This is a sensitive field that should be omitted or masked in production.
+
+
+⚠  SECURITY FINDING [HIGH] EXP-001-bank.iban
+   Response field 'bank.iban' is present in response body. This is a sensitive field that should be omitted or masked in production.
+
+
+⚠  SECURITY FINDING [HIGH] EXP-001-ein
+   Response field 'ein' is present in response body. This is a sensitive field that should be omitted or masked in production.
+
+
+⚠  SECURITY FINDING [HIGH] EXP-001-macAddress
+   Response field 'macAddress' is present in response body. This is a sensitive field that should be omitted or masked in production.
+
+
+⚠  SECURITY FINDING [HIGH] EXP-001-ip
+   Response field 'ip' is present in response body. This is a sensitive field that should be omitted or masked in production.
+
+
+⚠  SECURITY FINDING [HIGH] EXP-001-crypto.wallet
+   Response field 'crypto.wallet' is present in response body. This is a sensitive field that should be omitted or masked in production.
+

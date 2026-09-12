@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [HIGH] OWN-002b
+   GET /carts/user/2 without any authentication returns 200. Production expectation: 401. Cart data is accessible to unauthenticated requests.
+

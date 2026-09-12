@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [HIGH] OWN-003
+   GET /users/3/todos by user 2 returned 200. Production expectation: 403. Todos are personal task data. Cross-user access should require admin role.
+

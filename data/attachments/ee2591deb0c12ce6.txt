@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] RBAC-005
+   Destructive operations must require authentication. DummyJSON simulates delete without enforcing auth. Observed: 200, Production expectation: 401
+

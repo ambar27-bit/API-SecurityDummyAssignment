@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [MEDIUM] EXP-001f
+   GET /users/1 contains crypto.wallet: true. Crypto wallet addresses are financial identifiers. Production: omit or restrict to owner only.
+

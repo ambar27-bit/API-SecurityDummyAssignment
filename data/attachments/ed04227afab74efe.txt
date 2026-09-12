@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] OWN-004
+   PUT /users/3 by user 2 (different user, role=admin) returned 200. Production expectation: 403. Users must not be able to modify another user's record. This is a BOLA (Broken Object Level Authorization) vulnerability. Only the user themselves or an admin should be permitted to modify a user record.
+

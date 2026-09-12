@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] OWN-004
+   Users should not be able to modify other users' records. Only admin should have this permission. Observed: 200, Production expectation: 403
+

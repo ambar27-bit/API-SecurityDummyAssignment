@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [MEDIUM] OWN-003b
+   GET /users/3/todos without auth returns 200. Production expectation: 401.
+

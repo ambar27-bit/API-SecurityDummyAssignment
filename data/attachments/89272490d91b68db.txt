@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [HIGH] EXP-001d
+   GET /users/1 contains bank.iban: true. IBAN is sensitive financial account data. Production: omit or mask.
+

@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [MEDIUM] NEG-005
+   A negative integer is not a valid user ID format. The server should return 400 (Bad Request) to signal invalid input. DummyJSON returns 404 (Not Found) — treating it as a valid-but-missing ID rather than rejecting the malformed input at the validation layer. Observed: 404, Production expectation: 400
+

@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [HIGH] RBAC-002
+   In a production system, non-admin users should not have access to the full user directory. DummyJSON allows this as it is a public sandbox. Observed: 200, Production expectation: 403
+

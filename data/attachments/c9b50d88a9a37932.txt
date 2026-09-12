@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [HIGH] EXP-001e
+   GET /users/1 contains 'ein' field: true. Employer Identification Number is a sensitive identifier. Production: omit.
+

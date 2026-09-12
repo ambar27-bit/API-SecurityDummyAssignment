@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] OWN-004b
+   PUT /users/3 without any authentication returns 200. Production expectation: 401.
+

@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [LOW] NEG-006
+   PATCH /auth/login returned 401. Production expectation: 405. Returning 401 instead of 405 obscures the real error (wrong HTTP method) behind an authentication error. An Allow response header should inform the caller which methods are valid for this endpoint.
+

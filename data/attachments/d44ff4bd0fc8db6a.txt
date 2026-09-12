@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [LOW] OWN-003c
+   GET /users/3/posts without auth returns 200. Posts may be considered public content depending on app design, but unauthenticated access to user-scoped sub-resources still lacks access control.
+

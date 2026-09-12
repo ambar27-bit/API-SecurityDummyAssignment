@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] RBAC-003
+   GET /users without any authentication returns 200. Production expectation: 401. This endpoint returns full user objects including SSN, bank details, plaintext passwords and other PII for all users without requiring any credentials. This represents a critical data exposure risk in a production equivalent system.
+

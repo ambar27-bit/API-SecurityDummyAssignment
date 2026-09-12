@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [MEDIUM] RBAC-002
+   GET /users returns 200 for a regular user (role=admin). In a production system this should return 403 — non-admin users should not have access to the full user directory. DummyJSON does not enforce role-based restrictions on this endpoint.
+

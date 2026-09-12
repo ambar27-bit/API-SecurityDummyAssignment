@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [MEDIUM] AUTH-006b
+   GET /auth/me with a structurally valid JWT but invalid signature returned 500. Production expectation: 401. A 500 response suggests the token validation logic throws an unhandled exception rather than returning a clean rejection. This violates OWASP API Security — invalid inputs must fail safely.
+

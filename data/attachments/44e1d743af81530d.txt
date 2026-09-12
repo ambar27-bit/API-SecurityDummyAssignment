@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] EXP-001c
+   GET /users/1 response contains bank.cardNumber: true. Full payment card numbers in API responses violate PCI-DSS requirements. Production expectation: omitted or masked (last 4 digits only).
+

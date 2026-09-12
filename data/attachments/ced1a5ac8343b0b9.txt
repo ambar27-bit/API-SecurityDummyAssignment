@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [HIGH] RBAC-006b
+   PUT /products/1 without authentication returns 200. Production expectation: 401.
+

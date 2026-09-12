@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [LOW] AUTH-008
+   POST /auth/refresh with invalid token returned 403. Production expectation: 401 (Unauthorised). DummyJSON returns 403 (Forbidden). While both reject the request, 401 is semantically correct when the credential itself is unrecognisable. 403 implies the identity is known but access is denied — incorrect for a bad token.
+

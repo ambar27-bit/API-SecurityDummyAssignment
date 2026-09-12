@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] RBAC-004
+   DELETE /users/2 as regular user (role=admin) returned 200. Production expectation: 403. Regular users must not be able to delete other users — only admins should hold that privilege. DummyJSON performs no role or ownership check on destructive operations. OWASP API Security reference: API5:2023 Broken Function Level Authorization.
+

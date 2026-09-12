@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [LOW] NEG-005
+   GET /users/-1 returned 404. Production expectation: 400. A negative integer is not a valid user ID. The API should validate input format and return 400 before attempting any lookup. Returning 404 leaks that the ID format was accepted as valid, which is incorrect.
+

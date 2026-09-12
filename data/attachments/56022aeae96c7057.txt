@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [MEDIUM] AUTH-008
+   DummyJSON returns 403 (Forbidden) instead of 401 (Unauthorised) for an invalid refresh token. 401 is semantically correct when the credential is unrecognisable. 403 implies a known identity being denied access — incorrect for a bad token. Observed: 403, Production expectation: 401
+

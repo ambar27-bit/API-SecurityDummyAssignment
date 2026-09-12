@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] RBAC-005
+   DELETE /users/3 without authentication returns 200. Production expectation: 401. Destructive operations must require authentication. DummyJSON simulates the delete (isDeleted flag in response) without enforcing auth, which is expected sandbox behaviour but would be a critical auth bypass in production.
+

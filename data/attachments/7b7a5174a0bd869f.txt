@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [HIGH] RBAC-006
+   POST /products/add without authentication returns 201. Production expectation: 401. Resource creation endpoints must require authentication. DummyJSON accepts unauthenticated writes (simulated).
+

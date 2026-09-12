@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] RBAC-003
+   Public user directory without any authentication is a data exposure risk. All user PII including SSN, bank details and passwords are accessible without credentials. Observed: 200, Production expectation: 401
+

@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] EXP-001a
+   GET /users/1 response contains a 'password' field with a non-empty value: true. Production expectation: password must NEVER appear in any API response in any form. Plaintext passwords in API responses are a critical vulnerability — they violate OWASP API3:2023 (Broken Object Property Level Authorization) and basic credential hygiene.
+

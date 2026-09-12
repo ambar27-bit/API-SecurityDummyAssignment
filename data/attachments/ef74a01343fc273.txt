@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [CRITICAL] RBAC-004
+   Non-admin users must not be able to delete other users. DummyJSON does not enforce role or ownership checks on DELETE /users/{id} — any authenticated user can delete any user record. This is a critical BFLA (Broken Function Level Authorization) vulnerability. Observed: 200, Production expectation: 403
+
