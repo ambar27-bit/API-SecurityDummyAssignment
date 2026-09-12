@@ -6,10 +6,12 @@ dotenv.config();
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: false, // Sequential to avoid hammering the public sandbox
+  globalSetup: './src/lib/global-setup.ts',
+  globalTeardown: './src/lib/global-teardown.ts',
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  workers: 1, // Single worker - shared public sandbox, no load testing
+  workers: 2, // 2 concurrent workers — auth handled via global setup, no duplicate logins
   timeout: 30_000,
   expect: {
     timeout: 10_000,
