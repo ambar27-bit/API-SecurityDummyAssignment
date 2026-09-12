@@ -20,21 +20,9 @@ export default defineConfig({
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['json', { outputFile: 'test-results/results.json' }],
     ['allure-playwright', {
-      detail: true,
       outputFolder: 'allure-results',
+      detail: true,
       suiteTitle: true,
-      categories: [
-        {
-          name: 'Security Findings',
-          messageRegex: '.*FINDING.*',
-          matchedStatuses: ['failed'],
-        },
-        {
-          name: 'Contract Failures',
-          messageRegex: '.*CONTRACT.*',
-          matchedStatuses: ['failed'],
-        },
-      ],
     }],
   ],
 
