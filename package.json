@@ -1,0 +1,30 @@
+{
+  "name": "api-security-tests-assignment",
+  "version": "1.0.0",
+  "description": "API security test framework for DummyJSON - QA Automation Assessment",
+  "scripts": {
+    "test": "playwright test",
+    "test:auth": "playwright test tests/auth",
+    "test:rbac": "playwright test tests/rbac",
+    "test:ownership": "playwright test tests/ownership",
+    "test:schema": "playwright test tests/schema",
+    "test:negative": "playwright test tests/negative",
+    "test:matrix": "playwright test tests/matrix",
+    "report": "playwright show-report",
+    "report:open": "playwright show-report playwright-report",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results"
+  },
+  "dependencies": {
+    "dotenv": "16.4.5",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.47.2",
+    "@types/node": "22.5.5",
+    "allure-commandline": "^2.30.0",
+    "allure-playwright": "^3.0.3",
+    "typescript": "5.6.2"
+  }
+}

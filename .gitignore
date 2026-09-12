@@ -1,0 +1,24 @@
+# Environment / secrets - NEVER commit
+.env
+*.env.local
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Test results and reports
+playwright-report/
+test-results/
+allure-results/
+allure-report/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

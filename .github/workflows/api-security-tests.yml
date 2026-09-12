@@ -1,0 +1,92 @@
+name: API Security Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    # Run daily at 06:00 UTC to detect API drift
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write  # needed to publish GitHub Pages
+
+jobs:
+  api-security-tests:
+    name: DummyJSON API Security Test Suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # No browser binaries needed — this is a pure API test suite.
+      # Playwright APIRequestContext makes HTTP calls directly without a browser.
+      - name: Install Playwright system dependencies
+        run: npx playwright install-deps
+
+      - name: Run API security tests
+        env:
+          # Credentials injected from GitHub Actions secrets — never hardcoded
+          BASE_URL: ${{ secrets.BASE_URL || 'https://dummyjson.com' }}
+          ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          USER_USERNAME: ${{ secrets.USER_USERNAME }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+          USER2_USERNAME: ${{ secrets.USER2_USERNAME }}
+          USER2_PASSWORD: ${{ secrets.USER2_PASSWORD }}
+          TOKEN_EXPIRES_IN_MINS: '30'
+          CI: 'true'
+        run: npm test
+
+      - name: Generate Allure report
+        if: always()
+        run: npm run allure:generate
+
+      # Publish Allure report to GitHub Pages so it can be viewed directly
+      # in the browser without needing a local server.
+      # Report URL: https://<username>.github.io/<repo>/
+      - name: Publish Allure report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-report
+          publish_branch: gh-pages
+          commit_message: 'ci: publish allure report [skip ci]'
+
+      - name: Upload Allure report artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-report-${{ github.run_id }}
+          path: allure-report/
+          retention-days: 30
+
+      - name: Upload Playwright HTML report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-${{ github.run_id }}
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Upload test results JSON
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ github.run_id }}
+          path: test-results/
+          retention-days: 30
