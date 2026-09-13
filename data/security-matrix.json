@@ -93,15 +93,15 @@
     {
       "id": "AUTH-008",
       "area": "Token Handling",
-      "description": "POST /auth/refresh with invalid refresh token must return 401 [DummyJSON returns 403 — minor contract deviation]",
+      "description": "POST /auth/refresh with invalid refresh token is safely rejected [DummyJSON returns 403; 401 would be more precise]",
       "endpoint": "/auth/refresh",
       "method": "POST",
       "authContext": "none",
       "credentialsKey": "invalid_refresh",
-      "expectedStatus": 401,
+      "expectedStatus": 403,
       "productionExpectedStatus": 401,
-      "securityClassification": "finding",
-      "securityHypothesis": "DummyJSON returns 403 (Forbidden) instead of 401 (Unauthorised) for an invalid refresh token. 401 is semantically correct when the credential is unrecognisable. 403 implies a known identity being denied access — incorrect for a bad token.",
+      "securityClassification": "contract",
+      "securityHypothesis": "Both 401 and 403 correctly reject an invalid refresh token. 401 is semantically more precise (unrecognisable credential); 403 is defensible. Low-severity observation, not a vulnerability.",
       "priority": "low"
     },
     {

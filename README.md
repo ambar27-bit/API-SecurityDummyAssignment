@@ -170,8 +170,10 @@ APIAssignment/
 │   │   ├── products.client.ts
 │   │   └── carts.client.ts
 │   ├── lib/
-│   │   ├── auth-session.ts  # Programmatic token acquisition and caching
-│   │   └── schemas.ts       # Zod schemas for runtime response validation
+│   │   ├── auth-session.ts    # Programmatic token acquisition (reads shared state)
+│   │   ├── global-setup.ts    # Runs once — authenticates all users, shares tokens
+│   │   ├── global-teardown.ts # Runs once — deletes the temp token file
+│   │   └── schemas.ts         # Zod schemas for runtime response validation
 │   ├── fixtures/
 │   │   └── api.fixtures.ts  # Playwright fixtures — wires clients to tests
 │   ├── types/
@@ -206,13 +208,13 @@ The project already uses Playwright as the test runner. Using its built-in HTTP 
 **Why Zod for schema validation?**
 Zod provides TypeScript-native runtime validation with structured error messages. Schema failures include the exact field path and failure reason, making assertion failures immediately understandable — directly satisfying the "make failures understandable" framework expectation.
 
-**Why single worker / sequential execution?**
-The target is a shared public sandbox. Parallel workers would increase request volume unnecessarily. The assignment explicitly prohibits load testing.
+**Why bounded parallelism (2 workers)?**
+The target is a shared public sandbox, so the suite deliberately caps concurrency at 2 workers rather than running unbounded — this keeps request volume gentle while still gaining a speed-up. Authentication is handled once in `global-setup.ts` (three logins total, shared across workers via a temp state file), so parallel workers never duplicate logins or race on token acquisition. `global-teardown.ts` deletes the token file after the run. This is the pattern the framework would use to scale to hundreds of tests.
 
 **Separation of concerns:**
 - `BaseClient` handles all HTTP mechanics (headers, response parsing, logging).
 - Resource clients (`AuthClient`, `UsersClient` etc.) expose domain-readable methods.
-- `AuthSession` manages token lifecycle — tests never handle tokens directly.
+- `AuthSession` manages token lifecycle — tests never handle tokens directly. In parallel runs it reads pre-authenticated tokens established once by `global-setup.ts`, so workers share a single set of tokens rather than each logging in.
 - Fixtures inject pre-authenticated contexts into tests — test code reads as business intent.
 - The security matrix JSON externalises scenario data so new test cases require no new test logic.
 
