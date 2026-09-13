@@ -111,11 +111,18 @@ npm run test:matrix      # Data-driven security matrix runner
 
 ### View the Report
 
+**Live Allure report (published from CI):**
+👉 https://ambar27-bit.github.io/API-SecurityDummyAssignment/
+
+The report is regenerated and published to GitHub Pages on every CI run. You can also generate reports locally:
+
 ```bash
-npm run report
+npm run report          # Playwright HTML report
+npm run allure:generate # build the Allure report (requires Java)
+npm run allure:open     # view the Allure report
 ```
 
-This opens the Playwright HTML report in your browser, showing all test results, timings and security findings.
+Both report on all executed scenarios, timings, and security findings.
 
 ---
 
@@ -311,6 +318,10 @@ A GitHub Actions workflow at `.github/workflows/api-security-tests.yml` runs the
 - Daily at 06:00 UTC (to catch API drift)
 
 Credentials are stored as GitHub Actions repository secrets (`ADMIN_USERNAME`, `ADMIN_PASSWORD` etc.) — never in the workflow file or repository. The HTML report and results JSON are uploaded as build artifacts retained for 30 days.
+
+On every run the Allure report is regenerated and published to GitHub Pages, giving reviewers a live, browsable report without any local setup:
+
+**https://ambar27-bit.github.io/API-SecurityDummyAssignment/**
 
 To configure: go to your GitHub repository → Settings → Secrets and variables → Actions → New repository secret, and add each key from `.env.example`.
 
