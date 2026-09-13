@@ -1,0 +1,4 @@
+
+⚠  SECURITY FINDING [LOW] AUTH-008
+   POST /auth/refresh with an invalid token returned 403 (Forbidden). Both 401 and 403 correctly reject the request; 401 is semantically more precise because the credential is unrecognisable (identity cannot be established). This is a low-severity contract observation, not a vulnerability.
+
