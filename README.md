@@ -329,14 +329,12 @@ To configure: go to your GitHub repository → Settings → Secrets and variable
 
 ## Actual Effort
 
-| Phase | Effort |
-|---|---|
-| API exploration and strategy design | ~1 hour |
-| Framework scaffold and client layer | ~1.5 hours |
-| Test implementation | ~2.5 hours |
-| Security matrix and findings documentation | ~1 hour |
-| CI pipeline and README | ~1 hour |
-| **Total** | **~7 hours** |
+Approximately 7-8 hours across two days. The bulk of the time went into test
+strategy and security reasoning, reviewing and correcting AI-generated code, and
+iterating on the CI pipeline, reporting (Allure) and parallel execution — rather
+than hand-writing every line. Effort was deliberately concentrated on the work
+with the most value: risk prioritisation, security classification of findings,
+and validating that the framework behaves correctly against the live API.
 
 ---
 
