@@ -1,4 +1,0 @@
-
-⚠  SECURITY FINDING [HIGH] OWN-005
-   GET /carts/1 returned cart belonging to userId=1, accessed by userId=2. No ownership or authorization check was performed. Any user can read any cart by guessing the cart ID.
-

@@ -1,4 +1,0 @@
-
-⚠  SECURITY FINDING [HIGH] RBAC-006
-   Resource creation should require authentication. DummyJSON accepts unauthenticated POST to /products/add. Observed: 201, Production expectation: 401
-
